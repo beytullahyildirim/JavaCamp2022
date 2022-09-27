@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Traha
- *
- */
-module İntro {
-}
