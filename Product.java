@@ -1,13 +1,27 @@
-package oop1;
+package oopWithNLayeredApp.entities;
 
-//PascalCase
 public class Product {
+	private int id;
 	private String name;
-	// camalCase
 	private double unitPrice;
-	private double discount;
-	private String imageUrl;
-	private int UnitsInStock;
+	
+	public Product() {
+		
+	}
+
+	public Product(int id, String name, double unitPrice) {
+		this.id = id;
+		this.name = name;
+		this.unitPrice = unitPrice;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -25,28 +39,5 @@ public class Product {
 		this.unitPrice = unitPrice;
 	}
 
-	public double getDiscount() {
-		return discount;
-	}
-
-	public void setDiscount(double discount) {
-		this.discount = discount;
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
-	public int getUnitsInStock() {
-		return UnitsInStock;
-	}
-
-	public void setUnitsInStock(int unitsInStock) {
-		UnitsInStock = unitsInStock;
-	}
-
-}         
+	
+}

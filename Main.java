@@ -1,51 +1,22 @@
+package oopWithNLayeredApp;
+
+import oopWithNLayeredApp.business.ProductManager;
+import oopWithNLayeredApp.core.logging.DatabaseLogger;
+import oopWithNLayeredApp.core.logging.FileLogger;
+import oopWithNLayeredApp.core.logging.Logger;
+import oopWithNLayeredApp.core.logging.MailLogger;
+import oopWithNLayeredApp.dataAccess.HibernateProductDao;
+import oopWithNLayeredApp.dataAccess.JdbcProductDao;
+import oopWithNLayeredApp.entities.Product;
 
 public class Main {
 
-	public static void main(String[] args) {
-		System.out.println("Hello World");
+	public static void main(String[] args) throws Exception {
+		Product product1 = new Product(1,"Iphone Xr", 9000);
 		
-		//degişken isimlendirmeler, java'da camelCase yazılır
-		
-				String ortaMetin ="ilginizi çekebilir";
-				String altMetin	= "vade süresi";
-
-				System.out.println(ortaMetin);
-				
-				int vade = 12;
-				
-				double dolarDun = 18.14;
-				double dolarBugun =18.20;
-				
-				boolean dolarDustuMu = false;
-				
-				String okYonu = "";
-				
-				if (dolarBugun<dolarDun){ // true
-					okYonu = "down.svg";
-					System.out.println(okYonu);
-				 
-			} else if(dolarBugun>dolarDun){
-					okYonu = "up.svg";
-					System.out.println(okYonu);
-					
-			} else {
-				okYonu = "equal.svg";
-				System.out.println(okYonu);
-				
-			}
-				
-					//array
-				
-				String[] krediler = {"Hızlı kredi","Maaşını Halkbank'tan","Mutlu Emeklikler"};
-				
-				
-				
-				for (int i = 0; i < krediler.length; i ++) {
-					System.out.println(krediler[i]);
-					
-				}
-				
-
+		Logger[] loggers = {new DatabaseLogger(), new FileLogger()};
+        
+		ProductManager productManager = new ProductManager(new HibernateProductDao(),loggers);
+		productManager.add(product1);
 	}
-
 }
